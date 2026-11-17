@@ -30,31 +30,6 @@ if (whatsapp) {
 }
 $('contactLinks').hidden = !(phone || email || whatsapp);
 
-function vcardEscape(text) {
-  return String(text).replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
-}
-$('saveContact').addEventListener('click', () => {
-  const lines = [
-    'BEGIN:VCARD', 'VERSION:3.0',
-    'N:' + [PROFILE.familyName,PROFILE.givenName,'','Ing.',''].map(vcardEscape).join(';'),
-    'FN:' + vcardEscape('Ing. ' + PROFILE.givenName + ' ' + PROFILE.familyName),
-    'TITLE:Web Developer',
-    'URL:' + PROFILE.website,
-    'NOTE:' + vcardEscape('Shoptet, WordPress, HTML, CSS, JavaScript, PHP, custom riešenia')
-  ];
-  if (phone) lines.push('TEL;TYPE=CELL:' + phone.replace(/[^+\d]/g, ''));
-  if (email) lines.push('EMAIL;TYPE=INTERNET:' + vcardEscape(email));
-  lines.push('END:VCARD');
-  const blob = new Blob(['\uFEFF' + lines.join('\r\n') + '\r\n'], {type:'text/vcard;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'ing-jan-skvara.vcf';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 3000);
-});
 
 const modal = $('qrDialog');
 $('showQr').addEventListener('click', () => modal.showModal());
