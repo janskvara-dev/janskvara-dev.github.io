@@ -14,3 +14,16 @@
 @media(max-width:740px){.page{padding:22px 13px}.business-card{max-width:440px;grid-template-columns:1fr}.visual-side{min-height:164px;padding:20px 17px 13px;border-right:none;border-bottom:1px solid var(--border);gap:9px}.mark-frame{width:115px;height:115px;margin-top:-2px}.mark-frame:before{inset:6px;border-radius:15px}.mark-frame:after{inset:13px;border-radius:9px}.mark-inner{width:89px;height:89px;border-radius:13px}.mark-letter{font-size:43px;padding-right:7px}.corner-a{top:9px;right:12px}.corner-b{bottom:8px;left:12px}.visual-top{font-size:9px}.visual-bottom{font-size:8px}.profile-side{padding:25px 25px 21px;align-items:center;text-align:center}.mini-kicker{font-size:8px}h1{font-size:clamp(28px,7.4vw,34px);margin:12px 0 4px}.summary{margin:11px 0 15px}.expertise,.buttons{justify-content:center}.buttons{margin-top:21px}.card-footer{margin-top:4px;padding-top:19px}.below-card{font-size:9px}}
 @media(max-width:390px){.profile-side{padding:23px 18px 20px}.business-card{border-radius:18px}.expertise-main,.expertise-tag{font-size:9px;padding:6px 8px}.feature-suffix{font-size:8px}.buttons{gap:7px}.button{padding:11px 12px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* MOBIL – CENTROVANIE KONTAKTOV */
+@media (max-width: 740px) {
+  .contact-links {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .contact-link {
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+  }
+}
