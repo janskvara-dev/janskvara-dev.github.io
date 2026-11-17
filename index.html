@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081020">
+  <meta name="description" content="Ing. Ján Škvara — Web Developer. Shoptet, WordPress, HTML, CSS, JavaScript, PHP a custom riešenia.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ing. Ján Škvara | Web Developer">
+  <meta property="og:description" content="Shoptet, WordPress a custom webové riešenia.">
+  <meta property="og:url" content="https://janskvara-dev.github.io/">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
+  <title>Ing. Ján Škvara | Web Developer</title>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><div class="ambient-a"></div><div class="ambient-b"></div></div>
+  <main class="page">
+    <article class="business-card" aria-labelledby="personName">
+      <div class="visual-side">
+        <div class="visual-top"><span class="signal" aria-hidden="true"></span>DIGITÁLNA VIZITKA</div>
+        <div class="mark-frame" aria-hidden="true">
+          <div class="mark-inner"><span class="mark-letter">J<span>Š</span></span></div>
+          <span class="corner corner-a"></span><span class="corner corner-b"></span>
+        </div>
+        <div class="visual-bottom"><span></span> WEB & E-COMMERCE <span></span></div>
+      </div>
+      <div class="profile-side">
+        <div class="mini-kicker">WEB DEVELOPER <span class="mini-dash"></span> E-COMMERCE</div>
+        <h1 id="personName">Ing. Ján <span>Škvara</span></h1>
+        <p class="position">Web Developer</p>
+        <p class="summary">E-shopy, weby a custom riešenia na mieru.</p>
+        <div class="expertise" aria-label="Špecializácia a technológie">
+          <span class="expertise-main"><span class="feature-dot" aria-hidden="true"></span>Shoptet <span class="feature-suffix">/ špecializácia</span></span>
+          <span class="expertise-tag">WordPress</span>
+          <span class="expertise-tag">HTML</span>
+          <span class="expertise-tag">CSS</span>
+          <span class="expertise-tag">JS</span>
+          <span class="expertise-tag">PHP</span>
+        </div>
+        <div class="contact-links" id="contactLinks" hidden>
+          <a id="emailLink" class="contact-link" href="#" hidden aria-label="Napísať e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span id="emailText"></span></a>
+          <a id="phoneLink" class="contact-link" href="#" hidden aria-label="Zavolať"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h3l1 5-2 2a15 15 0 0 0 5 5l2-2 5 1v3a3 3 0 0 1-3 3A15 15 0 0 1 4 6a3 3 0 0 1 3-3Z"/></svg><span id="phoneText"></span></a>
+          <a id="whatsappLink" class="contact-link" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="Napísať na WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.6a8.3 8.3 0 0 1-12.3 7.3L3 20l1.2-4.7a8.3 8.3 0 1 1 16-3.7Z"/><path d="M9 9.4c.6 2.1 2.1 3.6 4.2 4.2l1.4-1.2 2 1.3c-.3 1.4-1.4 2-2.6 1.8-3.1-.5-5.8-3.1-6.3-6.3-.2-1.2.4-2.3 1.8-2.6l1.3 2-1.8 1.8Z"/></svg><span>WhatsApp</span></a>
+        </div>
+        <div class="buttons">
+          <button type="button" class="button button-primary" id="saveContact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>Uložiť kontakt</button>
+          <button type="button" class="button button-quiet" id="showQr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3m-4 4h4m-7-4v4"/></svg>QR kód</button>
+        </div>
+        <div class="card-footer"><span class="footer-rule"></span><a href="https://github.com/janskvara-dev" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>
+    <p class="below-card">Ing. Ján Škvara <span aria-hidden="true">·</span> <span id="year"></span></p>
+  </main>
+
+  <dialog id="qrDialog" class="qr-dialog" aria-labelledby="qrHeading">
+    <button type="button" id="closeQr" class="qr-close" aria-label="Zatvoriť okno">×</button>
+    <span class="qr-topline">DIGITÁLNA VIZITKA</span>
+    <h2 id="qrHeading">Naskenuj a spojme sa.</h2>
+    <div class="qr-image"><img src="assets/images/qr-vizitka.svg" width="224" height="224" alt="QR kód na adresu janskvara-dev.github.io"></div>
+    <p class="qr-url">janskvara-dev.github.io</p>
+    <div class="qr-actions"><button type="button" id="copyLink">Kopírovať odkaz</button><a href="assets/images/qr-vizitka.svg" download="jan-skvara-qr.svg">Stiahnuť QR</a></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
