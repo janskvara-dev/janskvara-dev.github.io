@@ -25,7 +25,12 @@ if (email) {
   $('emailLink').hidden = false;
 }
 if (whatsapp) {
-  $('whatsappLink').href = 'https://wa.me/' + whatsapp;
+  
+const uvodnaSprava = 'Dobrý deň, našiel som Vašu digitálnu vizitku a rád by som sa informoval o Vašich službách.';
+
+$('whatsappLink').href = 'https://wa.me/' + whatsapp +
+  '?text=' + encodeURIComponent(uvodnaSprava);
+
   $('whatsappLink').hidden = false;
 }
 $('contactLinks').hidden = !(phone || email || whatsapp);
