@@ -90,3 +90,51 @@ $('copyLink').addEventListener('click', async () => {
     toast('Skopíruj: ' + PROFILE.website);
   }
 });
+
+// QR obrázok – iPhone / PC
+const qrPng = 'assets/images/qr-vizitka.png';
+let qrFile = null;
+
+// Pripravíme PNG na zdieľanie
+fetch(qrPng)
+  .then(response => {
+    if (!response.ok) throw new Error('QR PNG sa nenašiel');
+    return response.blob();
+  })
+  .then(blob => {
+    qrFile = new File([blob], 'qr-jan-skvara.png', {
+      type: 'image/png'
+    });
+  })
+  .catch(() => {});
+
+document.getElementById('saveQrImage').addEventListener('click', () => {
+
+  const isiPhone = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  // iPhone – otvorí ponuku zdieľania obrázka
+  if (isiPhone) {
+    if (qrFile && navigator.share &&
+        navigator.canShare?.({files: [qrFile]})) {
+
+      navigator.share({files: [qrFile]}).catch(error => {
+        if (error.name !== 'AbortError') {
+          window.location.href = qrPng;
+        }
+      });
+
+    } else {
+      window.open(qrPng, '_blank');
+    }
+    return;
+  }
+
+  // PC – stiahne PNG súbor
+  const link = document.createElement('a');
+  link.href = qrPng;
+  link.download = 'qr-jan-skvara.png';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+});
