@@ -27,3 +27,74 @@
     max-width: 100%;
   }
 }
+
+
+/* MOBIL – OPRAVA VIDITEĽNOSTI TLAČIDIEL */
+@media (max-width: 740px) {
+
+  .profile-side .buttons {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 350px;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .profile-side .buttons .button {
+    min-width: 0;
+    min-height: 52px;
+    padding: 12px 9px;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 12px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* ULOŽIŤ KONTAKT */
+  #saveContact,
+  #saveContact:hover,
+  #saveContact:active,
+  #saveContact:focus {
+    background: #70c6ff !important;
+    background-image: none !important;
+    color: #07192d !important;
+    -webkit-text-fill-color: #07192d !important;
+    border: 1px solid #91d7ff !important;
+    box-shadow: 0 5px 20px rgba(54, 158, 255, .28) !important;
+    opacity: 1 !important;
+  }
+
+  #saveContact svg {
+    color: #07192d !important;
+    stroke: #07192d !important;
+    opacity: 1 !important;
+  }
+
+  /* QR KÓD */
+  #showQr {
+    background: #1d3856 !important;
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    border: 1px solid #52779b !important;
+  }
+
+  #showQr svg {
+    stroke: #f0f7ff !important;
+  }
+}
+
+/* VEĽMI MALÉ MOBILY */
+@media (max-width: 370px) {
+  .profile-side .buttons {
+    grid-template-columns: 1fr;
+  }
+}
