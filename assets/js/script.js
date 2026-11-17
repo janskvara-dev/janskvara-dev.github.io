@@ -2,8 +2,8 @@
 const PROFILE = {
   givenName: 'Ján',
   familyName: 'Škvara',
-  phone: '',    // napr. '+421 900 123 456'
-  email: '',    // napr. 'jan@domena.sk'
+  phone: '+421 904 956 514',    // napr. '+421 900 123 456'
+  email: 'janskvara160@gmail.com',    // napr. 'jan@domena.sk'
   whatsapp: '', // nepovinné — ak ostane prázdne, použije sa číslo z phone
   website: 'https://janskvara-dev.github.io/'
 };
