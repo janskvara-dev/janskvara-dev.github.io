@@ -98,3 +98,70 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+/* KOMPAKTNÉ TLAČIDLÁ – PC AJ MOBIL */
+.profile-side .buttons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: auto !important;
+  max-width: 100% !important;
+  gap: 8px !important;
+  align-items: center;
+}
+
+.profile-side .buttons .button {
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 8px 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  border-radius: 8px !important;
+  gap: 7px !important;
+  white-space: nowrap;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+.profile-side .buttons .button svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* ULOŽIŤ KONTAKT – VIDITEĽNÉ */
+#saveContact {
+  background: #70c6ff !important;
+  background-image: none !important;
+  color: #07192d !important;
+  -webkit-text-fill-color: #07192d !important;
+  border: 1px solid #91d7ff !important;
+}
+
+#saveContact svg {
+  stroke: #07192d !important;
+}
+
+/* QR KÓD – ROVNAKÁ VEĽKOSŤ */
+#showQr {
+  background: #18314a !important;
+  color: #cee4f5 !important;
+  -webkit-text-fill-color: #cee4f5 !important;
+  border: 1px solid #31577b !important;
+}
+
+#showQr svg {
+  stroke: #77c7fb !important;
+}
+
+/* MOBIL – CENTROVANIE */
+@media (max-width: 740px) {
+  .profile-side .buttons {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
