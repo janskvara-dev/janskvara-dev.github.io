@@ -125,15 +125,19 @@ document.getElementById('saveQrImage').addEventListener('click', () => {
   const btn = document.getElementById('saveContact');
   if (!btn) return;
 
-  const ua = navigator.userAgent || '';
-  const ref = document.referrer || '';
+  
+const ua = navigator.userAgent || '';
 
-  const isFacebook =
-    /FBAN|FBAV|FB_IAB|FBIOS|FB4A|FBMD|FBSN|Messenger|Instagram/i.test(ua) ||
-    /(^|\/\/)(l\.facebook\.com|m\.facebook\.com|www\.facebook\.com|l\.instagram\.com)(\/|$)/i.test(ref);
+// Iba mobilné zariadenia
+const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
 
-  // Mimo Facebooku ponecháme pôvodné fungovanie
-  if (!isFacebook) return;
+// Iba interný prehliadač aplikácie Facebook
+const isFacebookApp =
+  /FBAN|FBAV|FB_IAB|FBIOS|FB4A|FBMD|FBSN/i.test(ua);
+
+// Upozornenie zobrazíme iba vo Facebook aplikácii na mobile
+if (!isMobile || !isFacebookApp) return;
+
 
   btn.addEventListener('click', function(e) {
     e.preventDefault();
