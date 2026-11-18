@@ -166,3 +166,62 @@
   }
 }
 
+
+
+/* JŠ – ANIMOVANÝ VONKAJŠÍ ŠTVOREC */
+.mark-frame::before {
+  transform-origin: center;
+  border-color: rgba(107, 181, 255, .35);
+  animation: jsDiamond 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* JEMNÁ ANIMÁCIA VNÚTORNÉHO RÁMU */
+.mark-frame::after {
+  animation: jsInnerGlow 6s ease-in-out infinite;
+}
+
+@keyframes jsDiamond {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+    opacity: .55;
+    box-shadow: 0 0 12px rgba(65, 151, 255, .08);
+  }
+
+  25% {
+    transform: rotate(58deg) scale(1.05);
+    opacity: .85;
+    box-shadow: 0 0 24px rgba(65, 151, 255, .18);
+  }
+
+  50% {
+    transform: rotate(45deg) scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(65, 151, 255, .22);
+  }
+
+  75% {
+    transform: rotate(32deg) scale(1.05);
+    opacity: .85;
+    box-shadow: 0 0 24px rgba(65, 151, 255, .15);
+  }
+}
+
+@keyframes jsInnerGlow {
+  0%, 100% {
+    opacity: .35;
+    border-color: rgba(119, 181, 250, .12);
+  }
+  50% {
+    opacity: .9;
+    border-color: rgba(119, 181, 250, .35);
+  }
+}
+
+/* PRÍSTUPNOSŤ – OBMEDZENÉ ANIMÁCIE */
+@media (prefers-reduced-motion: reduce) {
+  .mark-frame::before,
+  .mark-frame::after {
+    animation: none !important;
+  }
+}
