@@ -280,3 +280,110 @@ if (!isMobile || !isFacebookApp) return;
 
   }, true);
 })();
+
+
+
+/* LINKEDIN – ULOZENIE KONTAKTU V MOBILNEJ APKE */
+(() => {
+  const btn = document.getElementById('saveContact');
+  if (!btn) return;
+
+  const ua = navigator.userAgent || '';
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+  const isLinkedIn = /LinkedInApp|LinkedIn\/|LIApp/i.test(ua);
+
+  // Iba mobilná aplikácia LinkedIn
+  if (!isMobile || !isLinkedIn) return;
+
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    if (document.getElementById('liContactOverlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.id = 'liContactOverlay';
+    overlay.style.cssText = `
+      position:fixed;inset:0;z-index:2147483647;
+      background:rgba(3,9,21,.9);
+      display:flex;align-items:center;
+      justify-content:center;padding:20px;
+    `;
+
+    overlay.innerHTML = `
+      <div role="dialog" aria-modal="true"
+        aria-label="Uložiť kontakt"
+        style="position:relative;width:100%;max-width:360px;
+        padding:30px 23px;background:#13243c;
+        border:1px solid #416b96;border-radius:18px;
+        color:#eff6ff;text-align:center;
+        font-family:Manrope,Arial,sans-serif;
+        box-shadow:0 25px 70px #0008">
+
+        <button id="liClose" type="button"
+          style="position:absolute;right:13px;top:8px;
+          border:0;background:none;color:white;
+          font-size:27px;cursor:pointer">×</button>
+
+        <div style="font-size:30px;margin-bottom:12px">📱</div>
+
+        <h2 style="font-size:20px;margin:0 0 14px">
+          Uložiť kontakt
+        </h2>
+
+        <p style="font-size:13px;line-height:1.7;color:#c2d8ee">
+          Pre uloženie kontaktu otvorte vizitku
+          v Safari alebo Chrome.
+        </p>
+
+        <p style="font-size:13px;line-height:1.7;color:#a6c5e2">
+          V aplikácii LinkedIn kliknite na
+          <b>⋯</b> a vyberte možnosť
+          <b>Otvoriť v prehliadači</b>.
+        </p>
+
+        <button id="liCopy" type="button"
+          style="width:100%;margin-top:17px;padding:13px;
+          background:#70c6ff;color:#07192d;border:0;
+          border-radius:10px;font-size:13px;
+          font-weight:800;cursor:pointer">
+          Skopírovať odkaz na vizitku
+        </button>
+
+        <p id="liStatus" role="status" aria-live="polite"
+          style="font-size:12px;color:#a6d7ff;
+          overflow-wrap:anywhere"></p>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector('#liClose').onclick =
+      () => overlay.remove();
+
+    overlay.addEventListener('click', event => {
+      if (event.target === overlay) overlay.remove();
+    });
+
+    overlay.querySelector('#liCopy').onclick = async () => {
+      const url = 'https://janskvara-dev.github.io/';
+      const status = overlay.querySelector('#liStatus');
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const input = document.createElement('textarea');
+          input.value = url;
+          document.body.appendChild(input);
+          input.select();
+          if (!document.execCommand('copy')) throw new Error();
+          input.remove();
+        }
+        status.textContent = 'Odkaz skopírovaný ✓';
+      } catch {
+        status.textContent = url;
+      }
+    };
+  }, true);
+})();
