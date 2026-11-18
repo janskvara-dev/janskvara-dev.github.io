@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="sk">
+
+<!-- UMAMI ANALYTICS -->
+<script defer src="https://cloud.umami.is/script.js"
+  data-website-id="b8407a92-128f-447d-b527-ccd897487e47">
+</script>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,13 +50,13 @@
           <span class="expertise-tag">PHP</span>
         </div>
         <div class="contact-links" id="contactLinks" hidden>
-          <a id="emailLink" class="contact-link" href="#" hidden aria-label="Napísať e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span id="emailText"></span></a>
-          <a id="phoneLink" class="contact-link" href="#" hidden aria-label="Zavolať"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h3l1 5-2 2a15 15 0 0 0 5 5l2-2 5 1v3a3 3 0 0 1-3 3A15 15 0 0 1 4 6a3 3 0 0 1 3-3Z"/></svg><span id="phoneText"></span></a>
-          <a id="whatsappLink" class="contact-link" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="Napísať na WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.6a8.3 8.3 0 0 1-12.3 7.3L3 20l1.2-4.7a8.3 8.3 0 1 1 16-3.7Z"/><path d="M9 9.4c.6 2.1 2.1 3.6 4.2 4.2l1.4-1.2 2 1.3c-.3 1.4-1.4 2-2.6 1.8-3.1-.5-5.8-3.1-6.3-6.3-.2-1.2.4-2.3 1.8-2.6l1.3 2-1.8 1.8Z"/></svg><span>WhatsApp</span></a>
+          <a id="emailLink" data-umami-event="Klik email" class="contact-link" href="#" hidden aria-label="Napísať e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span id="emailText"></span></a>
+          <a id="phoneLink" data-umami-event="Klik telefon" class="contact-link" href="#" hidden aria-label="Zavolať"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h3l1 5-2 2a15 15 0 0 0 5 5l2-2 5 1v3a3 3 0 0 1-3 3A15 15 0 0 1 4 6a3 3 0 0 1 3-3Z"/></svg><span id="phoneText"></span></a>
+          <a id="whatsappLink" data-umami-event="Klik WhatsApp" class="contact-link" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="Napísať na WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.6a8.3 8.3 0 0 1-12.3 7.3L3 20l1.2-4.7a8.3 8.3 0 1 1 16-3.7Z"/><path d="M9 9.4c.6 2.1 2.1 3.6 4.2 4.2l1.4-1.2 2 1.3c-.3 1.4-1.4 2-2.6 1.8-3.1-.5-5.8-3.1-6.3-6.3-.2-1.2.4-2.3 1.8-2.6l1.3 2-1.8 1.8Z"/></svg><span>WhatsApp</span></a>
         </div>
         <div class="buttons">
           
-<a class="button button-primary" id="saveContact"
+<a class="button button-primary" id="saveContact" data-umami-event="Klik ulozit kontakt"
    href="assets/contacts/jan-skvara.vcf?v=5"
    aria-label="Uložiť kontakt Ing. Ján Škvara">
   <svg viewBox="0 0 24 24" fill="none"
@@ -62,7 +68,7 @@
   Uložiť kontakt
 </a>
 
-          <button type="button" class="button button-quiet" id="showQr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3m-4 4h4m-7-4v4"/></svg>QR kód</button>
+          <button type="button" id="showQr" data-umami-event="Klik QR kod" data-umami-event="Klik QR kod" class="button button-quiet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3m-4 4h4m-7-4v4"/></svg>QR kód</button>
         </div>
       </div>
     </article>
@@ -75,7 +81,7 @@
     <h2 id="qrHeading">Naskenuj a spojme sa.</h2>
     <div class="qr-image"><img src="assets/images/qr-vizitka.svg" width="224" height="224" alt="QR kód na adresu janskvara-dev.github.io"></div>
     <p class="qr-url">janskvara-dev.github.io</p>
-    <div class="qr-actions"><button type="button" id="copyLink">Kopírovať odkaz</button><button type="button" id="saveQrImage">Uložiť QR obrázok</button></div>
+    <div class="qr-actions"><button type="button" id="copyLink" data-umami-event="Klik kopirovat odkaz">Kopírovať odkaz</button><button type="button" id="saveQrImage" data-umami-event="Klik stiahnut QR">Uložiť QR obrázok</button></div>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
